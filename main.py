@@ -38,7 +38,7 @@ class TodoOut(TodoCreate):
     id: int
 
     class Config:
-        from_attributesS = True
+        from_attributes = True
 
 # Create a task
 @app.post("/api/todos/create/", response_model=TodoOut)
