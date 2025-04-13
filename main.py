@@ -54,6 +54,10 @@ def create_todo(todo: TodoCreate, db: Session = Depends(get_db)):
 def fetch_todos(db: Session = Depends(get_db)):
     return db.query(Todo).all()
 
+@app.get("/")
+def root():
+    return {"message": "FastAPI backend is running."}
+
 # Update a task
 @app.put("/api/todos/{todo_id}/update/", response_model=TodoOut)
 def update_todo(todo_id: int, updated: TodoCreate, db: Session = Depends(get_db)):
