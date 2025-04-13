@@ -13,7 +13,10 @@ app = FastAPI()
 # CORS Middleware for allowing React frontend to access FastAPI backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Change as needed for production
+    allow_origins=[
+        "http://localhost:5173",  # for local dev
+        "https://butong-fastapi-app.netlify.app",
+    ]  # your deployed frontend],  # Change as needed for production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -35,7 +38,7 @@ class TodoOut(TodoCreate):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributesS = True
 
 # Create a task
 @app.post("/api/todos/create/", response_model=TodoOut)
