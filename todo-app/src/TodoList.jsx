@@ -81,18 +81,21 @@ export default function TodoList() {
   };
 
   // Toggle task completion
-  const toggleComplete = (index) => {
-    const updatedTask = { ...tasks[index], completed: !tasks[index].completed };
-    axios
-      .put(`${API_URL}${updatedTask.id}/update/`, updatedTask) // Correct endpoint for toggling task completion
-      .then((response) => {
-        const updatedTasks = tasks.map((t, i) => (i === index ? response.data : t)); // Update the task state
-        setTasks(updatedTasks);
-      })
-      .catch((error) => {
-        console.error("Error toggling task completion:", error);
-      });
-  };
+const toggleComplete = (index) => {
+  const updatedTask = { ...tasks[index], completed: !tasks[index].completed };
+  axios
+    .put(`${API_URL}/api/todos/${updatedTask.id}/update/`, updatedTask)
+    .then((response) => {
+      const updatedTasks = tasks.map((t, i) =>
+        i === index ? response.data : t
+      ); // Update the task state
+      setTasks(updatedTasks); // Set the new state
+    })
+    .catch((error) => {
+      console.error("Error toggling task completion:", error);
+    });
+};
+
 
   // Filter tasks
   const filteredTasks = tasks.filter((task) => {
@@ -129,8 +132,8 @@ export default function TodoList() {
           <li key={index} className={`task-item ${t.completed ? "completed" : ""}`}>
             <input
               type="checkbox"
-              checked={t.completed}
-              onChange={() => toggleComplete(index)} // Toggle task completion
+              checked={t.completed}  // ✅ Bind the checkbox to the `completed` state of the task
+              onChange={() => toggleComplete(index)}  // ✅ Trigger `toggleComplete` when clicked
             />
             {editingIndex === index ? (
               <div className="edit-container">
@@ -144,7 +147,7 @@ export default function TodoList() {
               </div>
             ) : (
               <>
-                <span className="task-text">{t.title}</span>  {/* Ensure you display the task 'title' */}
+                <span className="task-text">{t.title}</span>  {/* Display task title */}
                 <div className="buttons">
                   <button className="edit-btn" onClick={() => startEditing(index)}>✏️ Edit</button>
                   <button className="delete-btn" onClick={() => removeTask(index)}>🗑️ Delete</button>
