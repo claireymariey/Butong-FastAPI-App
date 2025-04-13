@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 // Update the API URL to match FastAPI backend paths
-const API_URL = "https://butong-fastapi-app.onrender.com";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function TodoList() {
   const [tasks, setTasks] = useState([]);
