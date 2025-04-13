@@ -1,0 +1,229 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  min-height: 100vh;
+  background-color: #fffbfe;
+  color: #333;
+  margin: 0;
+  overflow-y: auto; 
+}
+
+/* Centered Container */
+.app-container {
+  text-align: center;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 200%;
+  max-width: 600px;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+.app-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Input Section */
+.input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #ff4081;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Task List */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-item {
+  background: #ffffff;
+  padding: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding-left: 60px; /* Adjust padding to ensure space for the checkbox */
+  border-radius: 5px;
+}
+
+.task-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 20px; /* Move checkbox closer to the edge */
+}
+
+.task-text {
+  flex-grow: 1;
+  text-align: left;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.edit-btn {
+  background-color: #ffd740;
+  color: black;
+}
+
+.delete-btn {
+  background-color: #ee1c1c;
+  color: white;
+}
+
+.edit-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.save-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+/* Light Mode */
+.light-mode {
+  background-color: #fccaf2;
+  color: #333;
+}
+
+.light-mode .app-container {
+  background: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode */
+.dark-mode {
+  background-color: #412e5b;
+  color: #e0e0e0;
+}
+
+.dark-mode .app-container {
+  background: #7a45a0;
+  box-shadow: 0 4px 15px rgba(0, 255, 128, 0.2);
+}
+
+/* Light Mode Title */
+.light-mode .app-title {
+  color: #333;  /* Dark text for light mode */
+}
+
+/* Dark Mode Title */
+.dark-mode .app-title {
+  color: #e0e0e0; /* Light text for dark mode */
+}
+
+/* Light Mode Task Text */
+.light-mode .task-text {
+  color: #333;  /* Dark text for light mode */
+}
+
+/* Dark Mode Task Text */
+.dark-mode .task-text {
+  color: #333; /* Light text for dark mode */
+}
+
+/* Light Mode - To-Do List Heading */
+.light-mode h2 {
+  color: #333;  /* Dark text for better visibility */
+}
+
+/* Dark Mode - To-Do List Heading */
+.dark-mode h2 {
+  color: #e0e0e0; /* Light text for contrast */
+}
+
+/* Smooth Theme Transition */
+body, .app-container, .app-title, .task-item, button {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Completed Task Styling */
+.completed .task-text {
+  text-decoration: line-through;
+  color: gray;
+  opacity: 0.7;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Filter Buttons */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filter-container button {
+  background: #FF00FF;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: bold;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.filter-container button:hover {
+  background: #FF00FF;
+}
+
+.filter-container .active {
+  background: #28a745; /* Highlight active filter */
+}
