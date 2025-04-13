@@ -19,4 +19,4 @@ FRONTEND:
 https://butong-fastapi-app.netlify.app/
 
 
-to run the frontend, need e open ang backend first. If not dili ma read sa netlify ang APII so the add tasks won't work.
+To run the frontend, need e open ang backend first. If not dili ma read sa netlify ang APII so the add tasks won't work.
