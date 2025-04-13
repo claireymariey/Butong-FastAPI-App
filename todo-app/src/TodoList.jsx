@@ -43,15 +43,16 @@ export default function TodoList() {
   // Delete a task
   const removeTask = (index) => {
     const taskToRemove = tasks[index];
-    axios
-      .delete(`${API_URL}${taskToRemove.id}/api/todos/${taskToRemove.id}/delete/`)  // Correct endpoint for deleting tasks
-      .then(() => {
-        setTasks(tasks.filter((_, i) => i !== index)); // Remove the task from the state
-      })
-      .catch((error) => {
-        console.error("Error deleting task:", error);
-      });
-  };
+    // Correct the delete URL
+      axios
+        .delete(`${API_URL}/api/todos/${taskToRemove.id}/delete/`)  // Correct delete URL
+        .then(() => {
+          setTasks(tasks.filter((_, i) => i !== index)); // Remove the task from the state
+        })
+        .catch((error) => {
+          console.error("Error deleting task:", error);
+        });
+  };  
 
   // Start editing a task
   const startEditing = (index) => {
@@ -63,8 +64,9 @@ export default function TodoList() {
   const saveEdit = () => {
     if (editingText.trim() === "") return;
     const updatedTask = { ...tasks[editingIndex], title: editingText };  // Update 'title'
+    // Correct the update URL
     axios
-      .put(`${API_URL}${updatedTask.id}/api/todos/${updatedTask.id}/update/`, updatedTask) // Correct endpoint for updating task
+      .put(`${API_URL}/api/todos/${updatedTask.id}/update/`, updatedTask)  // Correct update URL
       .then((response) => {
         console.log("Task updated:", response.data); // Log to ensure the task is updated
         const updatedTasks = [...tasks];
