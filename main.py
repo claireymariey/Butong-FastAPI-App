@@ -16,7 +16,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",  # for local dev
         "https://butong-fastapi-app.netlify.app",
-    ]  # your deployed frontend],  # Change as needed for production
+    ],  # your deployed frontend],  # Change as needed for production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
